@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     $user = new User();
-$user->password = Hash::make('lolmpe123');
-$user->email = 'info@ciaompe.com';
-$user->save();
+    $user->password = Hash::make('lolmpe123');
+    $user->email = 'info@ciaompe.com';
+    $user->save();
 });
