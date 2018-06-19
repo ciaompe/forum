@@ -20,9 +20,9 @@ Route::get('/', function () {
     echo json_encode($users);
 });
 
-// Route::get('/test', function () {
-//     $user = new User();
-//     $user->password = Hash::make('lolmpe123');
-//     $user->email = 'info@ciaompe.com';
-//     $user->save();
-// });
+Route::get('/test', function () {
+    $user = new User();
+    $user->password = Hash::make('lolmpe123');
+    $user->email = 'info@ciaompe.com';
+    $user->save();
+});
