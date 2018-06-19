@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $users = User::all();
+    
+    echo json_encode($users);
 });
