@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     $user = new User();
+    $user->name = "Manoj Prasanna Elvitigala";
     $user->password = Hash::make('lolmpe123');
     $user->email = 'info@ciaompe.com';
     $user->save();
