@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use Illuminate\Routing\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,11 @@ Route::get('/', function () {
     $users = User::all();
     
     echo json_encode($users);
+});
+
+Route::get('/test', function () {
+    $user = new User();
+$user->password = Hash::make('lolmpe123');
+$user->email = 'info@ciaompe.com';
+$user->save();
 });
