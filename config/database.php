@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url(getenv('DATABASE_URL'));
+$url = parse_url(getenv('CLEARDB_DATABASE_URL'));
 
 $user = $url["user"] ?? null;
 $password = $url["pass"]?? null;
@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql_production'),
+    'default' => env('DB_CONNECTION', 'mysql_production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -62,6 +62,18 @@ return [
             'engine' => null,
         ],
 
+        'mysql_production' => [
+            'driver' => 'mysql',
+            'host' => $host,
+            'port' => $port,
+            'database' => $dbname,
+            'username' => $user,
+            'password' => $password,
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => ''
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -75,17 +87,17 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'pgsql_production' => [
-            'driver' => 'pgsql',
-            'host' => $host,
-            'port' => $port,
-            'database' => $dbname,
-            'username' => $user,
-            'password' => $password,
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public'
-        ],
+        // 'pgsql_production' => [
+        //     'driver' => 'pgsql',
+        //     'host' => $host,
+        //     'port' => $port,
+        //     'database' => $dbname,
+        //     'username' => $user,
+        //     'password' => $password,
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'schema' => 'public'
+        // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
